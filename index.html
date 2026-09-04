@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Toba Foundation — Restoring hope and dignity in Bonao, Dominican Republic</title>
-<meta name="description" content="The Toba Foundation funds therapeutic care for children with disabilities in Bonao, Dominican Republic, named for Cristobal, the boy who first showed us the need.">
+<meta name="description" content="The Toba Foundation funds therapeutic care for children with disabilities in Bonao, Dominican Republic.">
 <style>
   :root {
     --ink: #26312c;
@@ -15,6 +15,8 @@
     --gold: #b5892f;
     --gold-light: #d9b06a;
     --line: #d8d2c2;
+    --donate: #2f7a4d;
+    --donate-hover: #256140;
   }
 
   * { box-sizing: border-box; }
@@ -45,28 +47,37 @@
   .wrap { max-width: 780px; margin: 0 auto; padding: 0 28px; }
 
   header.site {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(250,248,243,0.92);
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(250,248,243,0.94);
     backdrop-filter: blur(6px);
     border-bottom: 1px solid var(--line);
   }
   header.site .wrap {
     display: flex; align-items: center; justify-content: space-between;
-    padding-top: 16px; padding-bottom: 16px;
+    padding-top: 14px; padding-bottom: 14px;
   }
   .wordmark {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.25rem; font-weight: 600; color: var(--forest-deep);
+    font-size: 1.2rem; font-weight: 600; color: var(--forest-deep);
     text-decoration: none;
   }
-  nav.sans a {
-    color: var(--ink); text-decoration: none; font-size: 0.95rem;
-    margin-left: 24px; opacity: 0.8;
+  nav.sans { display: flex; align-items: center; gap: 4px; }
+  nav.sans a.navlink {
+    color: var(--ink); text-decoration: none; font-size: 0.92rem;
+    margin-left: 20px; opacity: 0.75;
   }
-  nav.sans a:hover { opacity: 1; }
+  nav.sans a.navlink:hover { opacity: 1; }
+  .nav-donate {
+    margin-left: 22px;
+    background: var(--donate); color: #fff;
+    padding: 8px 18px; border-radius: 20px;
+    font-size: 0.88rem; font-weight: 600; text-decoration: none;
+    transition: background 0.15s ease;
+  }
+  .nav-donate:hover { background: var(--donate-hover); }
 
   .hero {
-    padding: 90px 0 70px;
+    padding: 84px 0 64px;
     position: relative;
     overflow: hidden;
   }
@@ -90,10 +101,11 @@
   }
 
   .section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .section.tint { background: var(--paper-warm); }
   .section h2 { font-size: 1.9rem; color: var(--forest-deep); margin-top: 0; }
 
   .story-figure {
-    background: var(--paper-warm);
+    background: #fff;
     border-left: 3px solid var(--gold);
     padding: 26px 30px;
     margin: 28px 0;
@@ -125,6 +137,17 @@
     color: var(--gold); font-weight: 700;
   }
 
+  .trust-strip {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin: 22px 0 0;
+  }
+  .trust-badge {
+    font-family: -apple-system, sans-serif; font-size: 0.82rem;
+    background: #fff; border: 1px solid var(--line); border-radius: 20px;
+    padding: 7px 16px; color: #445048;
+  }
+  .trust-badge strong { color: var(--forest-deep); }
+
   .verify-box {
     background: var(--forest-deep); color: var(--paper);
     border-radius: 3px; padding: 34px 36px; margin-top: 20px;
@@ -136,32 +159,59 @@
   .verify-box li { margin-bottom: 8px; }
 
   .cta-row {
-    margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap;
+    margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
   }
   .btn {
     font-family: -apple-system, sans-serif; font-size: 0.95rem; font-weight: 600;
-    padding: 13px 26px; border-radius: 3px; text-decoration: none; display: inline-block;
+    padding: 14px 28px; border-radius: 3px; text-decoration: none; display: inline-block;
+    transition: background 0.15s ease, transform 0.1s ease;
   }
-  .btn.primary { background: var(--gold); color: var(--forest-deep); }
-  .btn.primary:hover { background: var(--gold-light); }
+  .btn.donate { background: var(--donate); color: #fff; border-radius: 26px; }
+  .btn.donate:hover { background: var(--donate-hover); }
+  .btn.donate:active { transform: scale(0.98); }
   .btn.ghost { border: 1px solid var(--forest-deep); color: var(--forest-deep); }
+  .secure-note {
+    font-family: -apple-system, sans-serif; font-size: 0.8rem; color: #6b7268;
+  }
 
   footer.site {
-    border-top: 1px solid var(--line); padding: 34px 0 50px;
+    border-top: 1px solid var(--line); padding: 34px 0 90px;
     font-family: -apple-system, sans-serif; font-size: 0.88rem; color: #6b7268;
   }
   footer.site a { color: #6b7268; }
   footer.site .links { margin-top: 10px; }
   footer.site .links a { margin-right: 18px; }
 
+  .sticky-donate {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+    background: var(--forest-deep);
+    padding: 12px 20px;
+    display: flex; align-items: center; justify-content: center; gap: 14px;
+    transform: translateY(100%);
+    transition: transform 0.25s ease;
+  }
+  .sticky-donate.show { transform: translateY(0); }
+  .sticky-donate span {
+    font-family: -apple-system, sans-serif; color: #e7ede9; font-size: 0.88rem;
+  }
+  .sticky-donate a.btn.donate { padding: 9px 22px; font-size: 0.88rem; }
+
+  [data-reveal] {
+    opacity: 0; transform: translateY(14px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  [data-reveal].revealed { opacity: 1; transform: translateY(0); }
+
   @media (max-width: 560px) {
     .stat-row { grid-template-columns: 1fr 1fr; }
     .path { display: none; }
-    nav.sans { display: none; }
+    nav.sans a.navlink { display: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
+    [data-reveal] { opacity: 1; transform: none; transition: none; }
+    .sticky-donate { transition: none; }
   }
 </style>
 </head>
@@ -171,9 +221,10 @@
   <div class="wrap">
     <a class="wordmark" href="#top">The Toba Foundation</a>
     <nav class="sans">
-      <a href="#story">Our Story</a>
-      <a href="#accountability">Accountability</a>
-      <a href="#contact">Contact</a>
+      <a class="navlink" href="#story">Our Story</a>
+      <a class="navlink" href="#accountability">Accountability</a>
+      <a class="navlink" href="#contact">Contact</a>
+      <a class="nav-donate" href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener">Donate</a>
     </nav>
   </div>
 </header>
@@ -189,17 +240,18 @@
     <h1>Restoring hope and dignity to children with disabilities.</h1>
     <p class="lede">The Toba Foundation funds therapeutic care — occupational, physical, and speech therapy, behavioral support, and developmental evaluations — for children whose families have nowhere else to turn.</p>
     <div class="cta-row">
-      <a class="btn primary" href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener">Donate Now</a>
+      <a class="btn donate" href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener">Donate Now</a>
       <a class="btn ghost" href="#contact">Get in touch</a>
     </div>
+    <p class="secure-note" style="margin-top:14px;">🔒 Secure donation, processed by Christian Ministry Alliance · Tax-deductible</p>
   </section>
 
-  <section class="section" id="story">
+  <section class="section" id="story" data-reveal>
     <div class="wrap">
       <h2>Named for the first child we set out to help</h2>
       <p>Every child we serve is made in the image of God, carrying dignity that no diagnosis can diminish. That conviction is the whole reason this ministry exists — and it began with one boy.</p>
       <div class="story-figure">
-        <p><span class="name">Cristobal</span>, whom we call "Toba," lives in a remote mountain community in Bonao. He is blind, autistic, non-verbal, and likely living with additional developmental delays. He was the first child we sought to help — and yet, because his village is so difficult to reach, he has received the least consistent care of anyone in our program. It was in searching for a way to help him that our founder discovered how much greater the need was throughout the surrounding community. The Toba Foundation was created in direct response.</p>
+        <p>A young boy <span class="name">we call "Toba,"</span> lives in a remote mountain community in Bonao. He is blind, autistic, non-verbal, and likely living with additional developmental delays. He was the first child we sought to help — and yet, because his village is so difficult to reach, he has received the least consistent care of anyone in our program. It was in searching for a way to help him that our founder discovered how much greater the need was throughout the surrounding community. The Toba Foundation was created in direct response.</p>
       </div>
       <div class="stat-row">
         <div class="stat"><div class="num">9</div><div class="label">Children served</div></div>
@@ -209,7 +261,7 @@
     </div>
   </section>
 
-  <section class="section safeguards" id="accountability">
+  <section class="section tint safeguards" id="accountability" data-reveal>
     <div class="wrap">
       <h2>Every gift, accounted for</h2>
       <p>Good stewardship is inseparable from good ministry. Here is how we safeguard every dollar given:</p>
@@ -219,43 +271,38 @@
         <li>Every disbursement requires three-point verification, reviewed by at least two independent representatives.</li>
       </ul>
 
+      <div class="trust-strip">
+        <span class="trust-badge"><strong>Candid Platinum Seal</strong> — highest nonprofit transparency rating</span>
+        <span class="trust-badge"><strong>501(c)(3)</strong> via fiscal sponsor CMA</span>
+        <span class="trust-badge">Donations <strong>tax-deductible</strong></span>
+      </div>
+
       <div class="verify-box">
         <h3>Verify us directly</h3>
         <p>The Toba Foundation operates as a fiscally sponsored project of Christian Ministry Alliance (CMA), a registered 501(c)(3), under a Pre-Approved Grant Relationship. We encourage you to confirm this relationship independently:</p>
         <ul class="sans">
           <li><a href="https://fso.christianministryalliance.org/member-profile/the-toba-foundation/">The Toba Foundation's CMA member profile</a></li>
-          <li><a href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn">The Toba Foundation's CMA grant directory listing</a></li>
+          <li><a href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener"><strong>Donate directly through CMA (opens secure donation form)</strong></a></li>
           <li><a href="https://fso.christianministryalliance.org/">Contact CMA directly</a></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section class="section" id="app-purpose">
+  <section class="section" id="app-purpose" data-reveal>
     <div class="wrap">
       <h2>About our internal tools</h2>
       <p>This website is also the home page for internal administrative software used solely by The Toba Foundation's founder to manage outreach to potential churches, donors, and partner organizations. These internal tools connect to Google Sheets (using Google's standard OAuth authorization) to maintain a private spreadsheet tracking prospective donors and outreach status. No data from any other person's Google account is accessed, and no information is shared with third parties. See our <a href="privacy.html">Privacy Policy</a> for full details.</p>
     </div>
   </section>
 
-  <section class="section" id="contact">
+  <section class="section tint" id="contact" data-reveal>
     <div class="wrap">
       <h2>Let's talk</h2>
       <p>Whether you're a church, a business, or a family considering a partnership, we'd welcome the conversation — a phone call, an email, or a face-to-face or video meeting, whatever's easiest for you.</p>
       <p class="sans">
         <strong>Luis</strong>, Founder<br>
-        Email: <a href="mailto:TheTobaFoundation@gmail.com">TheTobaFoundation@gmail.com</a><br>
+        Email: <a href="mailto:TheTobaFoundation@gmail.com">TheTobaFoundation@gmail.com</a>
       </p>
-    </div>
-  </section>
-</main>
-
-<footer class="site">
-  <div class="wrap">
-    <div>&copy; 2026 The Toba Foundation. Fiscally sponsored by Christian Ministry Alliance.</div>
-    <div class="links"><a href="privacy.html">Privacy Policy</a><a href="https://www.facebook.com/profile.php?id=61593817931185" target="_blank" rel="noopener">Facebook</a></div>
-  </div>
-</footer>
-
-</body>
-</html>
+      <div class="cta-row" style="margin-top:22px;">
+        <a class="btn donate"
