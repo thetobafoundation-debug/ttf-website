@@ -5,18 +5,37 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Toba Foundation — Restaurando la esperanza y la dignidad en Bonao, República Dominicana</title>
 <meta name="description" content="The Toba Foundation financia atención terapéutica para niños con discapacidades en Bonao, República Dominicana.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Toba Foundation">
+<meta property="og:description" content="Restaurando la esperanza y la dignidad de niños con discapacidades en Bonao, República Dominicana.">
+<meta property="og:url" content="https://thetobafoundation.org/es/">
+<meta property="og:image" content="https://thetobafoundation.org/images/gallery-1.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Toba Foundation">
+<meta name="twitter:description" content="Restaurando la esperanza y la dignidad de niños con discapacidades en Bonao, República Dominicana.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23faf8f3'/%3E%3Cpath d='M15 70 L38 40 L52 52 L62 36 L85 70 Z' fill='%232c4a3e'/%3E%3Cpath d='M52 52 L62 36 L85 70 L62 70 Z' fill='%231c3229'/%3E%3Ccircle cx='62' cy='34' r='4' fill='%23b5892f'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+
 <style>
   :root {
-    --ink: #26312c;
-    --forest: #2c4a3e;
-    --forest-deep: #1c3229;
-    --paper: #faf8f3;
-    --paper-warm: #f2ede2;
-    --gold: #b5892f;
-    --gold-light: #d9b06a;
-    --line: #d8d2c2;
+    --ink: #22272e;
+    --forest: #2b4fa0;
+    --forest-deep: #16264f;
+    --paper: #ffffff;
+    --paper-warm: #f2f3f6;
+    --gold: #c9a227;
+    --gold-light: #e3c15f;
+    --line: #d7dae0;
     --donate: #2f7a4d;
     --donate-hover: #256140;
+    --shadow-sm: 0 1px 3px rgba(22,38,79,0.08);
+    --shadow-md: 0 6px 20px rgba(22,38,79,0.10);
+    --shadow-lg: 0 12px 34px rgba(22,38,79,0.16);
   }
 
   * { box-sizing: border-box; }
@@ -27,7 +46,8 @@
     background: var(--paper);
     color: var(--ink);
     font-family: 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
-    line-height: 1.6;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
 
   h1, h2, h3, .display {
@@ -36,17 +56,24 @@
     letter-spacing: 0.01em;
   }
 
-  .sans { font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
+  .sans { font-family: 'Source Sans 3', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; }
 
   a { color: var(--forest-deep); }
   a:focus-visible, button:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
 
   .wrap { max-width: 780px; margin: 0 auto; padding: 0 28px; }
 
+  .eyebrow {
+    font-family: 'Source Sans 3', sans-serif;
+    text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem;
+    color: var(--gold); font-weight: 700; margin-bottom: 14px;
+  }
+  .eyebrow.on-dark { color: var(--gold-light); }
+
   header.site {
     position: sticky; top: 0; z-index: 20;
     background: rgba(250,248,243,0.94);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
   header.site .wrap {
@@ -55,95 +82,153 @@
   }
   .wordmark {
     font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.2rem; font-weight: 600; color: var(--forest-deep);
+    font-size: 1.25rem; font-weight: 700; color: var(--forest-deep);
     text-decoration: none;
   }
   nav.sans { display: flex; align-items: center; gap: 4px; }
   nav.sans a.navlink {
     color: var(--ink); text-decoration: none; font-size: 0.92rem;
-    margin-left: 20px; opacity: 0.75;
+    margin-left: 20px; opacity: 0.75; transition: opacity 0.15s ease;
   }
   nav.sans a.navlink:hover { opacity: 1; }
   .nav-donate {
     margin-left: 22px;
     background: var(--donate); color: #fff;
-    padding: 8px 18px; border-radius: 20px;
+    padding: 9px 20px; border-radius: 20px;
     font-size: 0.88rem; font-weight: 600; text-decoration: none;
-    transition: background 0.15s ease;
+    box-shadow: var(--shadow-sm);
+    transition: background 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
   }
-  .nav-donate:hover { background: var(--donate-hover); }
+  .nav-donate:hover { background: var(--donate-hover); box-shadow: var(--shadow-md); transform: translateY(-1px); }
 
-  .hero { padding: 84px 0 64px; position: relative; overflow: hidden; }
-  .hero .eyebrow {
-    font-family: -apple-system, sans-serif;
-    text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.78rem;
-    color: var(--gold); font-weight: 600; margin-bottom: 18px;
+  .hero {
+    padding: 100px 0 20px;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--paper);
+    background-image: radial-gradient(ellipse 900px 520px at 85% -10%, rgba(201,162,39,0.20) 0%, transparent 62%), url(%22data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='98' viewBox='0 0 28 49'%3E%3Cpath fill='%23c9a227' fill-opacity='0.09' d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/svg%3E%22);
+    background-repeat: no-repeat, repeat;
   }
+  .hero .eyebrow { margin-bottom: 20px; }
   .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.3rem);
-    line-height: 1.12; margin: 0 0 26px; color: var(--forest-deep);
+    font-size: clamp(2.4rem, 5.2vw, 3.6rem);
+    line-height: 1.1; margin: 0 0 26px; color: var(--forest-deep);
     max-width: 17ch;
   }
-  .hero p.lede { font-size: 1.2rem; max-width: 52ch; color: #445048; }
+  .hero p.lede { font-size: 1.22rem; max-width: 52ch; color: #445048; }
 
-  .path { position: absolute; right: -60px; top: 40px; width: 320px; opacity: 0.5; pointer-events: none; }
+  .path { position: absolute; right: -60px; top: 40px; width: 320px; opacity: 0.55; pointer-events: none; }
 
-  .section { padding: 56px 0; border-top: 1px solid var(--line); }
+  .hero-photo {
+    margin: 44px 0 0; border-radius: 14px; overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--line);
+  }
+  .hero-photo img {
+    width: 100%; display: block; max-height: 460px; object-fit: cover; object-position: center 25%;
+  }
+
+  .section { padding: 64px 0; border-top: 1px solid var(--line); }
   .section.tint { background: var(--paper-warm); }
-  .section h2 { font-size: 1.9rem; color: var(--forest-deep); margin-top: 0; }
+  .section h2 { font-size: 2rem; color: var(--forest-deep); margin-top: 0; margin-bottom: 18px; }
 
   .story-figure {
-    background: #fff; border-left: 3px solid var(--gold);
-    padding: 26px 30px; margin: 28px 0; font-size: 1.05rem;
+    background: #fff; border: 1px solid var(--line); border-left: 3px solid var(--gold);
+    border-radius: 0 6px 6px 0;
+    padding: 28px 32px; margin: 30px 0; font-size: 1.06rem;
+    box-shadow: var(--shadow-sm);
   }
   .story-figure .name { font-weight: 600; color: var(--forest-deep); }
 
-  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 34px 0 10px; }
-  .stat { text-align: left; }
-  .stat .num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.6rem; color: var(--forest-deep); line-height: 1; }
+  .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 38px 0 10px; }
+  .stat {
+    text-align: left; background: #fff; border-radius: 8px;
+    padding: 20px 18px; box-shadow: var(--shadow-sm);
+    border: 1px solid var(--line); border-top: 3px solid var(--gold);
+  }
+  .stat .num { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 2.8rem; font-weight: 700; color: var(--forest-deep); line-height: 1; }
   .stat .label {
-    font-family: -apple-system, sans-serif; font-size: 0.85rem;
-    text-transform: uppercase; letter-spacing: 0.06em; color: #6b7268; margin-top: 6px;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.83rem;
+    text-transform: uppercase; letter-spacing: 0.06em; color: #6b7268; margin-top: 8px;
   }
 
-  .safeguards ul { list-style: none; padding: 0; margin: 24px 0 0; }
-  .safeguards li { padding: 14px 0 14px 34px; position: relative; border-bottom: 1px solid var(--line); }
-  .safeguards li:last-child { border-bottom: none; }
-  .safeguards li::before { content: '✓'; position: absolute; left: 0; top: 14px; color: var(--gold); font-weight: 700; }
+  .gallery-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin-top: 30px;
+  }
+  .gallery-grid img {
+    width: 100%; aspect-ratio: 1 / 1; object-fit: cover;
+    border-radius: 8px; box-shadow: var(--shadow-sm);
+    border: 1px solid var(--line);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gallery-grid img:hover { transform: scale(1.02); box-shadow: var(--shadow-md); }
+  .gallery-caption {
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.85rem; color: #6b7268;
+    margin-top: 16px;
+  }
 
-  .trust-strip { display: flex; flex-wrap: wrap; gap: 12px; margin: 22px 0 0; }
+  .safeguards ul { list-style: none; padding: 0; margin: 26px 0 0; }
+  .safeguards li { padding: 15px 0 15px 40px; position: relative; border-bottom: 1px solid var(--line); }
+  .safeguards li:last-child { border-bottom: none; }
+  .safeguards li::before {
+    content: '✓'; position: absolute; left: 0; top: 12px;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--gold); color: #fff;
+    font-size: 0.72rem; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .trust-strip { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0 0; }
   .trust-badge {
-    font-family: -apple-system, sans-serif; font-size: 0.82rem;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem;
     background: #fff; border: 1px solid var(--line); border-radius: 20px;
-    padding: 7px 16px; color: #445048;
+    padding: 8px 18px; color: #445048; box-shadow: var(--shadow-sm);
   }
   .trust-badge strong { color: var(--forest-deep); }
 
   .verify-box {
     background: var(--forest-deep); color: var(--paper);
-    border-radius: 3px; padding: 34px 36px; margin-top: 20px;
+    border-radius: 10px; padding: 36px 38px; margin-top: 24px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(217,176,106,0.35);
   }
-  .verify-box h3 { color: var(--gold-light); margin-top: 0; font-size: 1.3rem; }
+  .verify-box h3 { color: var(--gold-light); margin-top: 0; font-size: 1.35rem; }
   .verify-box p { color: #d9e2dc; }
   .verify-box a { color: var(--gold-light); font-weight: 600; }
   .verify-box ul { padding-left: 20px; margin: 16px 0 0; }
   .verify-box li { margin-bottom: 8px; }
 
-  .cta-row { margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+  .cta-row { margin-top: 32px; display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
   .btn {
-    font-family: -apple-system, sans-serif; font-size: 0.95rem; font-weight: 600;
-    padding: 14px 28px; border-radius: 3px; text-decoration: none; display: inline-block;
-    transition: background 0.15s ease, transform 0.1s ease;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.96rem; font-weight: 700;
+    padding: 15px 30px; border-radius: 3px; text-decoration: none; display: inline-block;
+    transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
   }
-  .btn.donate { background: var(--donate); color: #fff; border-radius: 26px; }
-  .btn.donate:hover { background: var(--donate-hover); }
+  .btn.donate { background: var(--donate); color: #fff; border-radius: 28px; box-shadow: var(--shadow-md); }
+  .btn.donate:hover { background: var(--donate-hover); box-shadow: var(--shadow-lg); transform: translateY(-1px); }
   .btn.donate:active { transform: scale(0.98); }
-  .btn.ghost { border: 1px solid var(--forest-deep); color: var(--forest-deep); }
-  .secure-note { font-family: -apple-system, sans-serif; font-size: 0.8rem; color: #6b7268; }
+  .btn.donate-gold { background: var(--gold); color: var(--forest-deep); border-radius: 28px; box-shadow: var(--shadow-md); }
+  .btn.donate-gold:hover { background: var(--gold-light); box-shadow: var(--shadow-lg); transform: translateY(-1px); }
+  .btn.ghost { border: 1.5px solid var(--forest-deep); color: var(--forest-deep); }
+  .btn.ghost:hover { background: var(--forest-deep); color: #fff; }
+  .btn.ghost-light { border: 1.5px solid var(--gold-light); color: var(--gold-light); }
+  .btn.ghost-light:hover { background: var(--gold-light); color: var(--forest-deep); }
+  .secure-note { font-family: 'Source Sans 3', sans-serif; font-size: 0.82rem; color: #6b7268; }
+  .secure-note.on-dark { color: #b9c7bf; }
+
+  .section.closing {
+    background: var(--forest-deep); color: var(--paper); border-top: none;
+    text-align: left;
+  }
+  .section.closing h2 { color: #fff; }
+  .section.closing p { color: #d9e2dc; }
+  .section.closing a:not(.btn) { color: var(--gold-light); }
 
   footer.site {
-    border-top: 1px solid var(--line); padding: 34px 0 90px;
-    font-family: -apple-system, sans-serif; font-size: 0.88rem; color: #6b7268;
+    border-top: 1px solid var(--line); padding: 36px 0 90px;
+    font-family: 'Source Sans 3', sans-serif; font-size: 0.88rem; color: #6b7268;
+    background: var(--paper);
   }
   footer.site a { color: #6b7268; }
   footer.site .links { margin-top: 10px; }
@@ -152,11 +237,12 @@
   .sticky-donate {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
     background: var(--forest-deep); padding: 12px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
     display: flex; align-items: center; justify-content: center; gap: 14px;
     transform: translateY(100%); transition: transform 0.25s ease;
   }
   .sticky-donate.show { transform: translateY(0); }
-  .sticky-donate span { font-family: -apple-system, sans-serif; color: #e7ede9; font-size: 0.88rem; }
+  .sticky-donate span { font-family: 'Source Sans 3', sans-serif; color: #e7ede9; font-size: 0.88rem; }
   .sticky-donate a.btn.donate { padding: 9px 22px; font-size: 0.88rem; }
 
   [data-reveal] { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
@@ -164,6 +250,7 @@
 
   @media (max-width: 560px) {
     .stat-row { grid-template-columns: 1fr 1fr; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     .path { display: none; }
     nav.sans a.navlink { display: none; }
   }
@@ -182,6 +269,7 @@
     <a class="wordmark" href="#top">The Toba Foundation</a>
     <nav class="sans">
       <a class="navlink" href="#historia">Nuestra Historia</a>
+      <a class="navlink" href="#galeria">Nuestro Trabajo</a>
       <a class="navlink" href="#transparencia">Transparencia</a>
       <a class="navlink" href="#contacto">Contacto</a>
       <a class="navlink" href="/">English</a>
@@ -204,11 +292,16 @@
       <a class="btn donate" href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener">Donar Ahora</a>
       <a class="btn ghost" href="#contacto">Contáctanos</a>
     </div>
-    <p class="secure-note" style="margin-top:14px;">🔒 Donación segura, procesada por Christian Ministry Alliance · Deducible de impuestos</p>
+    <p class="secure-note" style="margin-top:16px;">🔒 Donación segura, procesada por Christian Ministry Alliance · Deducible de impuestos</p>
+
+    <div class="hero-photo">
+      <img src="/images/gallery-1.jpg" alt="Un miembro del equipo de The Toba Foundation celebrando con un niño durante una actividad del campamento terapéutico" loading="eager">
+    </div>
   </section>
 
   <section class="section" id="historia" data-reveal>
     <div class="wrap">
+      <div class="eyebrow">Nuestra Historia</div>
       <h2>Nombrada por el primer niño que buscamos ayudar</h2>
       <p>Cada niño que atendemos fue creado a imagen de Dios, y lleva una dignidad que ningún diagnóstico puede disminuir. Esa convicción es la razón misma de este ministerio — y todo comenzó con un niño.</p>
       <div class="story-figure">
@@ -222,8 +315,26 @@
     </div>
   </section>
 
-  <section class="section tint safeguards" id="transparencia" data-reveal>
+  <section class="section tint" id="galeria" data-reveal>
     <div class="wrap">
+      <div class="eyebrow">En Acción</div>
+      <h2>Nuestro trabajo, en fotos</h2>
+      <p>Momentos reales de nuestro programa de campamento terapéutico — donde la terapia, el juego y el sentido de pertenencia ocurren juntos.</p>
+      <div class="gallery-grid">
+        <img src="/images/gallery-2.jpg" alt="Niños celebrando juntos en el campamento terapéutico, usando collares de flores" loading="lazy">
+        <img src="/images/gallery-3.jpg" alt="Un niño sosteniendo con orgullo su certificado de participación" loading="lazy">
+        <img src="/images/gallery-4.jpg" alt="Niños trabajando juntos en una actividad manual" loading="lazy">
+        <img src="/images/gallery-5.jpg" alt="Un niño pintando durante una sesión de terapia creativa" loading="lazy">
+        <img src="/images/gallery-6.jpg" alt="Un niño completando una actividad sensorial" loading="lazy">
+        <img src="/images/partner-logo.jpg" alt="Destrezas, Centro de Terapia Especializada, nuestro socio terapéutico local en Bonao" loading="lazy">
+      </div>
+      <p class="gallery-caption">Fotos utilizadas con permiso escrito de padres y tutores.</p>
+    </div>
+  </section>
+
+  <section class="section safeguards" id="transparencia" data-reveal>
+    <div class="wrap">
+      <div class="eyebrow">Transparencia</div>
       <h2>Cada donativo, con cuentas claras</h2>
       <p>La buena administración es inseparable del buen ministerio. Así es como protegemos cada dólar donado:</p>
       <ul class="sans">
@@ -236,6 +347,7 @@
         <span class="trust-badge"><strong>Sello Platino de Candid</strong> — la calificación más alta de transparencia sin fines de lucro</span>
         <span class="trust-badge"><strong>501(c)(3)</strong> a través del patrocinador fiscal CMA</span>
         <span class="trust-badge">Donativos <strong>deducibles de impuestos</strong></span>
+        <span class="trust-badge">Brindado en alianza con <strong>Destrezas, Centro de Terapia Especializada</strong></span>
       </div>
 
       <div class="verify-box">
@@ -250,24 +362,28 @@
     </div>
   </section>
 
-  <section class="section" id="app-purpose" data-reveal>
+  <section class="section tint" id="app-purpose" data-reveal>
     <div class="wrap">
+      <div class="eyebrow">Una Nota</div>
       <h2>Sobre nuestras herramientas internas</h2>
       <p>Este sitio web también sirve como página principal del software administrativo interno utilizado únicamente por el fundador de The Toba Foundation para gestionar el contacto con posibles iglesias, donantes y organizaciones asociadas. Estas herramientas internas se conectan a Google Sheets (mediante la autorización estándar OAuth de Google) para mantener una hoja de cálculo privada con posibles donantes y el estado de las gestiones. No se accede a datos de ninguna otra cuenta de Google, y no se comparte información con terceros. Consulta nuestra <a href="/privacy.html">Política de Privacidad</a> para más detalles.</p>
     </div>
   </section>
 
-  <section class="section tint" id="contacto" data-reveal>
+  <section class="section closing" id="contacto" data-reveal>
     <div class="wrap">
+      <div class="eyebrow on-dark">Involúcrate</div>
       <h2>Hablemos</h2>
       <p>Ya sea que representes a una iglesia, un negocio, o una familia considerando una alianza, nos encantaría conversar — una llamada telefónica, un correo electrónico, o una reunión en persona o por video, lo que te resulte más cómodo.</p>
-      <p class="sans">
-        <strong>Luis</strong>, Fundador<br>
+      <p class="sans" style="color:#e7ede9;">
+        <strong style="color:#fff;">Luis</strong>, Fundador<br>
         Correo: <a href="mailto:TheTobaFoundation@gmail.com">TheTobaFoundation@gmail.com</a>
       </p>
-      <div class="cta-row" style="margin-top:22px;">
-        <a class="btn donate" href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener">Donar Ahora</a>
+      <div class="cta-row">
+        <a class="btn donate-gold" href="https://apps.christianministryalliance.org/fs3223-the-toba-fdn" target="_blank" rel="noopener">Donar Ahora</a>
+        <a class="btn ghost-light" href="mailto:TheTobaFoundation@gmail.com">Escríbenos</a>
       </div>
+      <p class="secure-note on-dark" style="margin-top:16px;">🔒 Donación segura, procesada por Christian Ministry Alliance · Deducible de impuestos</p>
     </div>
   </section>
 </main>
